@@ -3,14 +3,6 @@ import './App.css';
 
 class App extends Component {
   render() {
-    // una lista con cada una de las tareas a realizar **
-      // cada una de las tareas puede tener:
-        // un boton para marcar la tarea como completada **
-        // un boton para eliminar la tarea **
-    // formulario
-      // una caja de texto para ponerle un titulo a la tarea
-      // un boton para agregar la tarea al la lista
-
     return (
       <div className="container">
          <h1 className="title">Lista de Tareas</h1>
