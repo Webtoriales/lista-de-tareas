@@ -1,0 +1,67 @@
+body {
+  background-color: #ff9068;
+}
+
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.lista-tareas-contenedor {
+  background-color: white;
+  width: 50%;
+}
+
+.title {
+  padding: 30px 0;
+  text-align: center;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+li {
+  padding: 20px 0;
+  text-align: center;
+}
+
+form {
+  width: 50%;
+  margin: 0 auto;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+input {
+  border: none;
+  border-radius: 3px;
+  background-color: lightseagreen;
+  padding: 15px 10px;
+  width:  75%;
+  margin-right: 10px;
+}
+
+button {
+  background-color: white;
+  border: 2px solid lightseagreen;
+  border-radius: 3px;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.titulo-tarea {
+  font-size: 20px;
+  font-weight: 600;
+  margin-right: 25px;
+}
+
+.icono-tarea {
+  cursor: pointer;
+  margin-right: 10px;
+}

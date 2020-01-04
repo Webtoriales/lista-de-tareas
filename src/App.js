@@ -12,33 +12,34 @@ class App extends Component {
       // un boton para agregar la tarea al la lista
 
     return (
-      <div className="container">
-         <h1 className="title">Lista de Tareas</h1>
+      <div className="app">
+        <div className="lista-tareas-contenedor">
+        <h1 className="title">Lista de Tareas</h1>
         <ul>
           <li>
-            Aprender Javascript
-            <span role="img" aria-label="emoji">
+            <span className="titulo-tarea">Aprender Javascript</span>
+            <span role="img" aria-label="emoji" className="icono-tarea">
               🆗
             </span>
-            <span role="img" aria-label="emoji">
+            <span role="img" aria-label="emoji" className="icono-tarea">
               ❌
             </span>
           </li>
           <li>
-            Aprender React
-            <span role="img" aria-label="emoji">
+            <span className="titulo-tarea">Aprender React</span>
+            <span role="img" aria-label="emoji" className="icono-tarea">
               🆗
             </span>
-            <span role="img" aria-label="emoji">
+            <span role="img" aria-label="emoji" className="icono-tarea">
               ❌
             </span>
           </li>
           <li>
-            Suscribirse a Webtoriales
-            <span role="img" aria-label="emoji">
+            <span className="titulo-tarea">Suscribirse a Webtoriales</span>
+            <span role="img" aria-label="emoji" className="icono-tarea">
               🆗
             </span>
-            <span role="img" aria-label="emoji">
+            <span role="img" aria-label="emoji" className="icono-tarea">
               ❌
             </span>
           </li>
@@ -49,6 +50,7 @@ class App extends Component {
             <span  role="img" aria-label="emoji">➕</span>
           </button>
         </form>
+        </div>
       </div>
     );
   }
