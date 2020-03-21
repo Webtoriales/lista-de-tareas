@@ -10,8 +10,13 @@ class App extends Component {
     ]
   }
 
-  handleClick = () => {
-    this.setState({ todoTitle: "Aprender Javascript"});
+  toggleTodo = e => {
+    const index = e.target.getAttribute("data-index");
+    const todos = [...this.state.todos];
+    const todo = {...todos[index]};
+    todo.completed = !todo.completed;
+    todos[index] = todo;
+    this.setState({ todos: todos});
   }
 
   deleteTodo = e => {
@@ -27,11 +32,23 @@ class App extends Component {
     return this.state.todos.map((todo, index) => {
       return(
         <li key={todo.title}>
-          <span className="titulo-tarea">{todo.title}</span>
-          <span role="img" aria-label="emoji" className="icono-tarea" onClick={this.handleClick}>
+          <span className={`titulo-tarea ${todo.completed ? "completed" : ""}`}>{todo.title}</span>
+          <span
+            role="img"
+            aria-label="emoji"
+            className="icono-tarea"
+            onClick={this.toggleTodo}
+            data-index={index}
+          >
             🆗
           </span>
-          <span role="img" aria-label="emoji" className="icono-tarea" onClick={this.deleteTodo} data-index={index}>
+          <span
+            role="img"
+            aria-label="emoji"
+            className="icono-tarea"
+            onClick={this.deleteTodo}
+            data-index={index}
+          >
             ❌
           </span>
         </li>
@@ -40,6 +57,7 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.state.todos);
     const renderedTodos = this.renderTodos()
     return (
       <div className="app">
