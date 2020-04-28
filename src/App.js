@@ -7,7 +7,8 @@ class App extends Component {
       { title: "Aprender Cocina", completed: false },
       { title: "Aprender React", completed: false },
       { title: "Suscribirse a Webtoriales", completed: true },
-    ]
+    ],
+    inputValue: ""
   }
 
   toggleTodo = e => {
@@ -56,8 +57,19 @@ class App extends Component {
     });
   }
 
+  submitHandler = (e) => {
+    e.preventDefault();
+    const newTodo = {
+      title: this.state.inputValue,
+      completed: false
+    };
+    this.setState({
+      todos: [...this.state.todos, newTodo],
+      inputValue: ""
+    });
+  }
+
   render() {
-    console.log(this.state.todos);
     const renderedTodos = this.renderTodos()
     return (
       <div className="app">
@@ -66,8 +78,13 @@ class App extends Component {
         <ul>
           {renderedTodos}
         </ul>
-        <form>
-          <input type="text" placeholder="Agrega aqui tu tarea"></input>
+        <form onSubmit={this.submitHandler}>
+          <input
+            type="text"
+            placeholder="Agrega aqui tu tarea"
+            value={this.state.inputValue}
+            onChange={(e) => this.setState({ inputValue: e.target.value })}
+          />
           <button>
             <span  role="img" aria-label="emoji">➕</span>
           </button>
