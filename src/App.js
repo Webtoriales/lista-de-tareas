@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+
+import TodoList from './components/TodoList';
+
 import './App.css';
 
 class App extends Component {
@@ -29,34 +32,6 @@ class App extends Component {
     });
   }
 
-  renderTodos = () => {
-    return this.state.todos.map((todo, index) => {
-      return(
-        <li key={todo.title}>
-          <span className={`titulo-tarea ${todo.completed ? "completed" : ""}`}>{todo.title}</span>
-          <span
-            role="img"
-            aria-label="emoji"
-            className="icono-tarea"
-            onClick={this.toggleTodo}
-            data-index={index}
-          >
-            🆗
-          </span>
-          <span
-            role="img"
-            aria-label="emoji"
-            className="icono-tarea"
-            onClick={this.deleteTodo}
-            data-index={index}
-          >
-            ❌
-          </span>
-        </li>
-      )
-    });
-  }
-
   submitHandler = (e) => {
     e.preventDefault();
     const newTodo = {
@@ -70,13 +45,16 @@ class App extends Component {
   }
 
   render() {
-    const renderedTodos = this.renderTodos()
     return (
       <div className="app">
         <div className="lista-tareas-contenedor">
         <h1 className="title">Lista de Tareas</h1>
         <ul>
-          {renderedTodos}
+          {<TodoList
+            todos={this.state.todos}
+            toggleTodo={this.toggleTodo}
+            deleteTodo={this.deleteTodo}
+          />}
         </ul>
         <form onSubmit={this.submitHandler}>
           <input
